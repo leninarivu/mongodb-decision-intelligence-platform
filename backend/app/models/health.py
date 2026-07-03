@@ -4,7 +4,20 @@ from pydantic import BaseModel, ConfigDict
 
 
 class HealthResponse(BaseModel):
-    service: Literal["ok", "degraded"]
-    database: Literal["ok", "unavailable"]
+    status: Literal["healthy"]
+    mongodb: Literal["connected"]
+    database: str
+    customer: str
 
-    model_config = ConfigDict(json_schema_extra={"examples": [{"service": "ok", "database": "ok"}]})
+    model_config = ConfigDict(
+        json_schema_extra={
+            "examples": [
+                {
+                    "status": "healthy",
+                    "mongodb": "connected",
+                    "database": "mdip_demo",
+                    "customer": "PepsiCo",
+                }
+            ]
+        }
+    )

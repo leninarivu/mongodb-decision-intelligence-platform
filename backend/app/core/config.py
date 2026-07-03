@@ -10,7 +10,8 @@ class Settings(BaseSettings):
     log_level: str = "info"
     backend_cors_origins: list[str] = Field(default_factory=lambda: ["http://localhost:3000"])
     mongodb_uri: str = "mongodb://localhost:27017"
-    mongodb_db: str = "decision_intelligence"
+    mongodb_database: str = "mdip_demo"
+    customer_profile: str = "PepsiCo"
 
     model_config = SettingsConfigDict(
         env_file=("../.env", ".env"),
