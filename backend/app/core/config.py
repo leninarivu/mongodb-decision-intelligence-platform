@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     mongodb_uri: str = "mongodb://localhost:27017"
     mongodb_database: str = "mdip_demo"
     customer_profile: str = "PepsiCo"
+    embedding_provider: str = "local_mock"
+    embedding_dimensions: int = 128
+    atlas_vector_search_index: str = "mdip_knowledge_vector_index"
 
     model_config = SettingsConfigDict(
         env_file=("../.env", ".env"),

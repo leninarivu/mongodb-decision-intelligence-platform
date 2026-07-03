@@ -6,6 +6,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.health import router as health_router
+from app.api.knowledge import router as knowledge_router
+from app.api.relationship_intelligence import router as relationship_intelligence_router
+from app.api.workspace import router as workspace_router
 from app.core.config import get_settings
 from app.db.mongodb import close_mongodb, connect_mongodb
 
@@ -37,6 +40,9 @@ def create_app() -> FastAPI:
     )
 
     app.include_router(health_router)
+    app.include_router(knowledge_router)
+    app.include_router(relationship_intelligence_router)
+    app.include_router(workspace_router)
     return app
 
 
